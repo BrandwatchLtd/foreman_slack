@@ -34,6 +34,7 @@ module ForemanSlack
     config.to_prepare do
       begin
         Host::Managed.send(:include, ForemanSlack::HostManagedExtensions)
+        Host::Managed.send(:include, ForemanSlack::DiscoveredHostExtensions)
         ReportImporter.send(:include, ForemanSlack::ReportImporterExtensions)
       rescue => e
         Rails.logger.warn "ForemanSlack: skipping engine hook (#{e})"

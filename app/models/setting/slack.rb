@@ -9,6 +9,7 @@ class Setting::Slack < ::Setting
         self.set('slack_username', N_("User name"), "foreman"),
         self.set('notify_slack_host_built', N_("Notify Slack when host is build"), true, N_("Notify Slack Host build")),
         self.set('notify_slack_puppet_error', N_("Notify Slack on puppet error"), true, N_("Notify Slack Puppet error")),
+        self.set('notify_slack_discovered_host', N_("Notify Slack when host is discovered"), true, N_("Notify Slack Discovered Host")),
       ].compact.each { |s| self.create s.update(:category => "Setting::Slack")}
     end
   end
