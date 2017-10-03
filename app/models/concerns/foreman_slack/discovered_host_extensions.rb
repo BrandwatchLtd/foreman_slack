@@ -3,13 +3,13 @@ module ForemanSlack
     extend ActiveSupport::Concern
 
     included do
-      alias_method_chain :send_discovered_notification, :slack
+      alias_method_chain :send_built_notification, :slack
     end
 
     private
 
     def send_discovered_notification_with_slack
-      if Setting[:notify_slack_discovered_host]
+      if Setting[:send_built_notification]
         slack = ForemanSlack::SlackNotify.new
         slack.notify(_('%s has been discovered!') % name)
       end
