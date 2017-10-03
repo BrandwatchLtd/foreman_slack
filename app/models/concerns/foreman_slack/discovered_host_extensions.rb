@@ -3,7 +3,7 @@ module ForemanSlack
     extend ActiveSupport::Concern
 
     included do
-      alias_method_chain :send_built_notification, :slack
+      alias_method_chain :create_notification, :slack
     end
 
     private
