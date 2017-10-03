@@ -8,12 +8,12 @@ module ForemanSlack
 
     private
 
-    def send_discovered_notification_with_slack
+    def create_notification_with_slack
       if Setting[:notify_slack_discovered_host]
         slack = ForemanSlack::SlackNotify.new
         slack.notify(_('%s has been discovered!') % name)
       end
-      send_discovered_notification_without_slack
+      create_notification_without_slack
     end
   end
 end
